@@ -16,22 +16,36 @@ Topics covered:
 
 [Collection of examples for all topics](https://editor.p5js.org/kjhollen/collections/sNFpUWpsH) in the p5.js editor.
 
-## drawing: shapes, fill, stroke, strokeWeight
+## getting started: the default sketch
 
-First, we'll practice the basics of drawing with shapes and working with the p5.js coordinate system.
+When you start a new sketch in the p5.js editor, it has some template code to help you get started. This template code includes two functions: `setup()` and `draw()`.
+
+- **`setup()`** runs exactly once, when your sketch first starts
+- **`draw()`** runs after `setup()`, repeating at a rate of 60 frames per second until you close the tab or stop the sketch
+
+In the default sketch, `setup()` is used to initialize the canvas and set its drawable size, while `draw()` just clears the background with a light gray color.
 
 ```
-  // 0-255 grayscale
-  stroke(255);
+// runs first, and only once when sketch is started
+function setup() {
+  createCanvas(400, 400); // creates a drawing area of 400x400 pixels
+}
 
+// runs after setup() at a rate of 60 frames per second, by default
+function draw() {
+  background(220); // draws a light gray background over the whole canvas
+}
+```
+
+## drawing: shapes, fill, stroke, strokeWeight
+
+First, we'll practice the basics of drawing with shapes and working with the p5.js coordinate system. While we're just getting started, it may be convenient to add the `noLoop()` function to `setup()` to make `draw()` run only once.
+
+p5.js provides some functions for drawing basic shapes, like circles, rectangles, lines, and triangles. You can also build complex shapes by drawing vertices directly, but sometimes it's easier to layer simple shapes or import an image in this case. To draw shapes on the canvas, we need to be able to describe where they are. Every shape needs a location as an (x,y) coordinate (or possibly multiple locations, for example, for a line where two endpoints are required). Some shapes may also need dimensions to describe their size.
+
+```
   // line (x1, y1, x2, y2)
   line(10, 20, 190, 20);
-
-  // red, green, blue 0-255
-  fill(54, 104, 204);
-
-  // no outline
-  noStroke();
 
   // rect (x, y, w, h) where x, y is top left
   rect(210, 20, 80, 160);
@@ -39,6 +53,18 @@ First, we'll practice the basics of drawing with shapes and working with the p5.
   // ellipse(x, y, w, h) where x, y is in the center
   ellipse(100, 200, 100, 100);
 ```
+The color of lines or outlines can be controlled with the `stroke()` function. The interior color of shapes is controlled with `fill()`. If you want to turn off the outline or fill color, you can use `noStroke()` or `noFill()`.
+```
+  // 0-255 grayscale
+  stroke(255);
+
+  // red, green, blue 0-255
+  fill(54, 104, 204);
+
+  // no outline
+  noStroke();
+```
+
 [Run example: simple colors and shapes](https://editor.p5js.org/kjhollen/sketches/eZsNSfDq2)
 
 **Practice exercise**: Make the canvas 300x300 pixels. Using only two colors, make a composition using at least 8 circles. Consider how you can make more complex shapes by overlapping circles in various ways.
