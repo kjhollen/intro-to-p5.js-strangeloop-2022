@@ -20,8 +20,6 @@ Topics covered:
 
 First, we'll practice the basics of drawing with shapes and working with the p5.js coordinate system.
 
-[Demo code](https://editor.p5js.org/kjhollen/sketches/eZsNSfDq2)
-
 ```
   // 0-255 grayscale
   stroke(255);
@@ -41,10 +39,69 @@ First, we'll practice the basics of drawing with shapes and working with the p5.
   // ellipse(x, y, w, h) where x, y is in the center
   ellipse(100, 200, 100, 100);
 ```
+[Run example: simple colors and shapes](https://editor.p5js.org/kjhollen/sketches/eZsNSfDq2)
 
 **Practice exercise**: Make the canvas 300x300 pixels. Using only two colors, make a composition using at least 8 circles. Consider how you can make more complex shapes by overlapping circles in various ways.
 
 **Practice exercise**: Make the canvas 100x100 pixels. Using only black and white (no grayscale yet!), create a sketch that draws a leaf. Note: make the background black or white, too.
+
+## variables ##
+
+Use variables to store and/or update information. There are many "types" of data you can store in a variable, but to keep things simple for now, we'll focus on numbers.
+
+```
+let x = 100; // declare a variable, x, and assign it a value (100)
+line(x, 50, x, 350); // use the variable, x, to draw a line at x = 100
+```
+
+Variables declared with `let` can be updated and assigned a new value.
+
+```
+x = x + 20; // adds 20 to x (previously 100), and reassigns the new value (120) to x
+line(x, 50, x, 350); // this time, use the variable to draw a line at x = 120
+```
+
+[Run full example: declaring, assigning, & using variables](https://editor.p5js.org/kjhollen/sketches/rzyFfs_io)
+
+Where should you declare & assign your variables? Unfortunately, there's not a simple answer to this question: it depends on what you want to do. So far, to keep things simple, we've been declaring our variables right before we use them in the `draw()` function. You may also want to have some variables in what's called the global scope:
+
+```
+let x = 100;
+
+function setup() {
+  createCanvas(600, 600);
+}
+
+function draw() {
+  background(0);
+  stroke(255);
+  strokeWeight(5);
+  
+  line(x, 50, x, 350);
+  // x = x + 1;
+}
+```
+The global scope is outside of either the `setup()` and `draw()` functions. When you're getting started, it can be nice to keep your variables at the top of the code for easy reading. Notice there's a line here that's commented out. What happens when you uncomment it? Why?
+
+[Run full example: global variable](https://editor.p5js.org/kjhollen/sketches/tBIXNbKfb)
+
+p5.js also has some built-in variables that can be used for creating interactive sketches. For example, the `mouseX` and `mouseY` variables hold the current (x,y) location of the mouse.
+
+```
+// draws a line from the center of the canvas to the mouse
+function setup() {
+  createCanvas(600, 600);
+  background(0);
+}
+
+function draw() {
+  stroke(255);
+  line(300, 300, mouseX, mouseY);
+}
+```
+[Run example: drawing a line from the center of the canvas to the mouse](https://editor.p5js.org/kjhollen/sketches/QiDnC-Anc)
+
+## simple user interaction: `mouseIsPressed` variable &amp; conditionals
 
 ## resources / what's next?
 
