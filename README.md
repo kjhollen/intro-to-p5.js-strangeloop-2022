@@ -103,6 +103,27 @@ function draw() {
 
 ## simple user interaction: `mouseIsPressed` variable &amp; conditionals
 
+The built-in variable `mouseIsPressed` contains one of two values, `true` or `false`, indicating whether or not a button on the mouse is currently pressed. Considering our previous example, we can modify our code to only draw when the user presses the mouse by using this variable with an `if` statement:
+
+```
+function setup() {
+  createCanvas(600, 600);
+  background(0);
+}
+
+function draw() {
+  stroke(255);
+  if (mouseIsPressed == true) { // only draw if mouse button pressed!
+  	line(300, 300, mouseX, mouseY);
+  }
+}
+```
+[Run example: simple drawing program with user interaction](https://editor.p5js.org/kjhollen/sketches/o_2NLjl-h)
+
+**Practice exercise**: Create a simple drawing program where the user can draw by pressing the mouse. If you feel stuck, try to start with something simple, like drawing a circle where the user clicks, then add on more shapes. Try to do something unexpected. 
+
+**Practice exercise**: For an added challenge, try to create a drawing program that has two different tools that the user can access by pressing 2 different keys on the keyboard. Think about how you might add variables and use the [`key`](https://p5js.org/reference/#/p5/key) or [`keyIsPressed`](https://p5js.org/reference/#/p5/keyIsPressed) variables, or even the [`keyPressed()`](https://p5js.org/reference/#/p5/keyPressed) function to achieve this.
+
 ## resources / what's next?
 
 looking for more tutorials? try these!
