@@ -145,6 +145,38 @@ let fillColor = map(mouseY, 0, height, 0, 255);
 
 [Run example: scaling size & color with `map()`](https://editor.p5js.org/kjhollen/sketches/_Z1YEo_oc)
 
+### animation
+
+To animate shapes, we can use a variable to store their location and update the variable to move the shape. Recall our global variable example from earlier, where the variable x is updated every frame of the `draw()` function:
+
+```
+let x = 0;
+
+function setup() {
+  createCanvas(400, 400);
+  stroke(255);
+  strokeWeight(5);
+}
+
+function draw() {
+  background(0);
+  line(x, 0, x, height);
+  
+  // move to the right for next time.
+  x = x + 1;
+}
+```
+Eventually, the line animates off of the right side of the screen and never comes back! But, we can fix this by adding a conditional that checks if the line has gone off-screen and resetting the x-coordinate to start again at x = 0:
+
+```
+  if (x > width) {
+    x = 0;
+  }
+```
+[Run example: bouncing line animation](https://editor.p5js.org/kjhollen/sketches/uLuELnQwv)
+
+**Practice exercise**: Update the example code to have the line bounce off the left side of the canvas, too. (Hint: you may also need to add a variable to control the direction or speed of the line)
+
 ## resources / what's next?
 
 looking for more tutorials? try these!
