@@ -177,6 +177,78 @@ Eventually, the line animates off of the right side of the screen and never come
 
 **Practice exercise**: Update the example code to have the line bounce off the left side of the canvas, too. (Hint: you may also need to add a variable to control the direction or speed of the line - see [solution](https://editor.p5js.org/kjhollen/sketches/0tXQrIJ5a))
 
+### Repetition with loops
+
+When we learned about variables earlier, we saw an example that drew three lines using the same variable and updating its value:
+
+```
+  let x = 100;
+  line(x, 50, x, 350);
+
+  x = x + 20;
+  line(x, 50, x, 350);
+
+  x = x + 20;
+  line(x, 50, x, 350);
+```
+
+There is some repeated code here. Imagine what this would look like if we want to draw 100 lines in this fashion! With this approach, we'd have to add 200 lines of code. Fortunately, loops provide a compact way to describe an action that should be repeated. The key elements are:
+
+- an initialization: declaring a variable that will be used to count/update in the loop
+- a condition: a test run on the loop variable to determine if the loop should continue
+- an increment: an expression that updates the loop variable
+
+The `for` loop provides a concise way to declare all three of the required elements:
+
+```
+  //  initialize; condition; increment
+  for (let x = 20; x <= 580; x = x + 20) {
+    line(x, 20, x, 580);
+  }
+```
+[Run example: create a bunch of lines with a for loop](https://editor.p5js.org/kjhollen/sketches/Rp4-nKQJS)
+
+### making grids with nested loops
+
+In the previous example, we used a loop to draw a bunch of vertical lines across the screen by updating the x coordinate of the line in the loop. If we instead wanted to draw a series of shapes, like circles, we could update the code like this:
+
+```
+  for (let x = 100;  x <= 500; x += 50) {
+    ellipse(x, 100, 50, 50);
+  }
+```
+This code creates a row of circles across the screen. To create a grid, we can write some code that repeats with a changing y coordinate.
+```
+  let y = 100;
+  for (let x = 100;  x <= 500; x += 50) {
+    ellipse(x, y, 50, 50); // y is 100
+  }
+  
+  y += 50; // same as y = y + 50;
+  for (let x = 100;  x <= 500; x += 50) {
+    ellipse(x, y, 50, 50); // y is 150
+  }
+  
+  y += 50;
+  for (let x = 100;  x <= 500; x += 50) {
+    ellipse(x, y, 50, 50); // y is 200
+  }
+```
+A similar pattern happens here, where our loop is repeated multiple times with different values of `y`. We can make this more compact with yet another loop!
+
+```
+ for (let x = 100; x <= 500; x += 50) {
+    for (let y = 100;  y <= 500; y += 50) {
+      ellipse(x, y, 50, 50);
+    }
+  }
+```
+These two loops are now nested. The first loops over the variable `x` and the other loops over the variable `y`. Because they are nested, the *entire* loop for `y` runs for every value of `x`.
+
+[Run example: create a grid of circles with two nested loops](https://editor.p5js.org/kjhollen/sketches/jE0hOsL57)
+
+**Practice exercise**: Create an interactive distortion grid, where shapes respond to their proximity to the mouse. The [`dist()`](https://p5js.org/reference/#/p5/dist) function will be useful for this.
+
 ## resources / what's next?
 
 looking for more tutorials? try these!
