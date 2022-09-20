@@ -175,7 +175,7 @@ Eventually, the line animates off of the right side of the screen and never come
 ```
 [Run example: bouncing line animation](https://editor.p5js.org/kjhollen/sketches/uLuELnQwv)
 
-**Practice exercise**: Update the example code to have the line bounce off the left side of the canvas, too. (Hint: you may also need to add a variable to control the direction or speed of the line)
+**Practice exercise**: Update the example code to have the line bounce off the left side of the canvas, too. (Hint: you may also need to add a variable to control the direction or speed of the line - see [solution](https://editor.p5js.org/kjhollen/sketches/0tXQrIJ5a))
 
 ## resources / what's next?
 
