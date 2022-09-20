@@ -124,6 +124,27 @@ function draw() {
 
 **Practice exercise**: For an added challenge, try to create a drawing program that has two different tools that the user can access by pressing 2 different keys on the keyboard. Think about how you might add variables and use the [`key`](https://p5js.org/reference/#/p5/key) or [`keyIsPressed`](https://p5js.org/reference/#/p5/keyIsPressed) variables, or even the [`keyPressed()`](https://p5js.org/reference/#/p5/keyPressed) function to achieve this.
 
+## advanced topics
+
+If we have time, we'll work through some more advanced topics for creating generative and interactive works. If we run out of time, these can also be a great place to continue studying on your own!
+
+### `map()`
+
+[`map()`](https://p5js.org/reference/#/p5/map) is a useful function for scaling a variable from a known domain (set of inputs) to a desired output range. For example, you may want to use the current `mouseX` coordinate to control the size of a shape, or the brightness of a color. The `map()` function takes five (!) arguments: an input value to scale, the minimum number expected in the input, a maximum number expected in the input, the desired minimum output number, and finally the desired maximum output number. The `map()` function performs the scaling calculation so we don't have to, then returns the value so we can use/store it for later use. 
+
+In this example, the variable circleSize will be 5 when mouseX is 0, or 100 when mouseX is 600, or 47.5 when mouseX is 300, etc:
+```
+// mouseX expected to be between 0 - 600, desired output is a circle size between 5 - 100  
+let circleSize = map(mouseX, 0, 600, 5, 100);
+```
+And in this example, the variable fillColor will be 0 when mouseY is 0, or 255 when mouseY is 600, or 128 when mouseY is 300, etc:
+```
+// mouseY expected to be between 0 - 600, desired output is a color/tone so 0-255
+let fillColor = map(mouseY, 0, height, 0, 255);
+```
+
+[Run example: scaling size & color with `map()`](https://editor.p5js.org/kjhollen/sketches/_Z1YEo_oc)
+
 ## resources / what's next?
 
 looking for more tutorials? try these!
