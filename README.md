@@ -20,8 +20,8 @@ Topics covered:
 
 When you start a new sketch in the p5.js editor, it has some template code to help you get started. This template code includes two functions: `setup()` and `draw()`.
 
-- **`setup()`** runs exactly once, when your sketch first starts
-- **`draw()`** runs after `setup()`, repeating at a rate of 60 frames per second until you close the tab or stop the sketch
+- [**`setup()`**](https://p5js.org/reference/#/p5/setup) runs exactly once, when your sketch first starts
+- [**`draw()`**](https://p5js.org/reference/#/p5/draw) runs after `setup()`, repeating at a rate of 60 frames per second until you close the tab or stop the sketch
 
 In the default sketch, `setup()` is used to initialize the canvas and set its drawable size, while `draw()` just clears the background with a light gray color.
 
@@ -39,9 +39,9 @@ function draw() {
 
 ## drawing: shapes, fill, stroke, strokeWeight
 
-First, we'll practice the basics of drawing with shapes and working with the p5.js coordinate system. While we're just getting started, it may be convenient to add the `noLoop()` function to `setup()` to make `draw()` run only once.
+First, we'll practice the basics of drawing with shapes and working with the p5.js coordinate system. While we're just getting started, it may be convenient to add the [`noLoop()`](https://p5js.org/reference/#/p5/noLoop) function to `setup()` to make `draw()` run only once.
 
-p5.js provides some functions for drawing basic shapes, like circles, rectangles, lines, and triangles. You can also build complex shapes by drawing vertices directly, but sometimes it's easier to layer simple shapes or import an image in this case. To draw shapes on the canvas, we need to be able to describe where they are. Every shape needs a location as an (x,y) coordinate (or possibly multiple locations, for example, for a line where two endpoints are required). Some shapes may also need dimensions to describe their size.
+p5.js provides some functions for drawing basic shapes, like [circles](https://p5js.org/reference/#/p5/ellipse), [rectangles](https://p5js.org/reference/#/p5/rect), [lines](https://p5js.org/reference/#/p5/line), and [triangles](https://p5js.org/reference/#/p5/triangle). You can also build complex shapes by drawing vertices directly, but sometimes it's easier to layer simple shapes or import an image in this case. To draw shapes on the canvas, we need to be able to describe where they are. Every shape needs a location as an (x,y) coordinate (or possibly multiple locations, for example, for a line where two endpoints are required). Some shapes may also need dimensions to describe their size.
 
 ```
   // line (x1, y1, x2, y2)
@@ -53,7 +53,7 @@ p5.js provides some functions for drawing basic shapes, like circles, rectangles
   // ellipse(x, y, w, h) where x, y is in the center
   ellipse(100, 200, 100, 100);
 ```
-The color of lines or outlines can be controlled with the `stroke()` function. The interior color of shapes is controlled with `fill()`. If you want to turn off the outline or fill color, you can use `noStroke()` or `noFill()`.
+The color of lines or outlines can be controlled with the [`stroke()`](https://p5js.org/reference/#/p5/stroke) function. The interior color of shapes is controlled with [`fill()`](https://p5js.org/reference/#/p5/fill). If you want to turn off the outline or fill color, you can use [`noStroke()`](https://p5js.org/reference/#/p5/noStroke) or [`noFill()`](https://p5js.org/reference/#/p5/noFill).
 ```
   // 0-255 grayscale
   stroke(255);
@@ -111,7 +111,7 @@ The global scope is outside of either the `setup()` and `draw()` functions. When
 
 [Run full example: global variable](https://editor.p5js.org/kjhollen/sketches/tBIXNbKfb)
 
-p5.js also has some built-in variables that can be used for creating interactive sketches. For example, the `mouseX` and `mouseY` variables hold the current (x,y) location of the mouse.
+p5.js also has some built-in variables that can be used for creating interactive sketches. For example, the [`mouseX`](https://p5js.org/reference/#/p5/mouseX) and [`mouseY`](https://p5js.org/reference/#/p5/mouseY) variables hold the current (x,y) location of the mouse.
 
 ```
 // draws a line from the center of the canvas to the mouse
@@ -129,7 +129,7 @@ function draw() {
 
 ## simple user interaction: `mouseIsPressed` variable &amp; conditionals
 
-The built-in variable `mouseIsPressed` contains one of two values, `true` or `false`, indicating whether or not a button on the mouse is currently pressed. Considering our previous example, we can modify our code to only draw when the user presses the mouse by using this variable with an `if` statement:
+The built-in variable [`mouseIsPressed`](https://p5js.org/reference/#/p5/mouseIsPressed) contains one of two values, `true` or `false`, indicating whether or not a button on the mouse is currently pressed. Considering our previous example, we can modify our code to only draw when the user presses the mouse by using this variable with an `if` statement:
 
 ```
 function setup() {
